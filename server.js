@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 //allows us to get data from req.body
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: ["https://icode-frontend.vercel.app", "https://icode-admin-panel.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     credentials: true, // Allow cookies and authentication headers
   })
