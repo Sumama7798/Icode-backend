@@ -31,6 +31,10 @@ app.use("/api/admin/create", createRoutes);
 app.use("/api/admin/super",superAdminRoutes)
 app.use("/api", cardsRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to iCode API");
+});
+
 app.listen(PORT, () => {
   console.log("server is running on http://localhost:" + PORT);
   connectDB();
