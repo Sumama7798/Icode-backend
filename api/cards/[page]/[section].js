@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     const { page, section } = req.query;
 
-    // Pass these as params if your controller expects Express-style params
+    // Express-style fix: simulate `req.params`
     req.params = { page, section };
 
     return getCardsByAdress(req, res);
