@@ -1,10 +1,10 @@
-import { connectDB } from "../../../utils/db.js";
+import { connectDB } from "../utils/db.js";
 import {
   Login,
   Logout,
   refreshToken,
   Signup,
-} from "../../../controllers/auth.controllers.js";
+} from "../controllers/auth.controllers.js";
 
 export default async function handler(req, res) {
   await connectDB();

@@ -1,14 +1,14 @@
-import { connectDB } from "../../../utils/db.js";
+import { connectDB } from "../utils/db.js";
 import {
   createAdmin,
   deleteUser,
   updateUserRole,
   getAllUsers,
-} from "../../../controllers/user.controller.js";
+} from "../controllers/user.controller.js";
 import {
   protectRoute,
   superAdminRoute,
-} from "../../../middleware/auth.middleware.js";
+} from "../middleware/auth.middleware.js";
 
 export default async function handler(req, res) {
   await connectDB();

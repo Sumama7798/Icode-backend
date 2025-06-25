@@ -1,18 +1,18 @@
-import { connectDB } from "../../../utils/db.js";
-import { Upload } from "../../../controllers/upload.controller.js";
+import { connectDB } from "../utils/db.js";
+import { Upload } from "../controllers/upload.controller.js";
 import {
   getUserProfile,
   updatePassword,
   updateUserProfile,
-} from "../../../controllers/profile.controller.js";
+} from "../controllers/profile.controller.js";
 import {
   createCard,
   deleteCard,
   getAllCards,
   getCardsByPage,
   updateCard,
-} from "../../../controllers/card.controller.js";
-import { protectRoute, adminRoute } from "../../../middleware/auth.middleware.js";
+} from "../controllers/card.controller.js";
+import { protectRoute, adminRoute } from "../middleware/auth.middleware.js";
 
 export default async function handler(req, res) {
   await connectDB();

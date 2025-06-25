@@ -1,5 +1,5 @@
-import { connectDB } from "../../../utils/db.js";
-import { sendEmail } from "../../../controllers/message.controller.js";
+import { connectDB } from "../utils/db.js";
+import { sendEmail } from "../controllers/message.controller.js";
 
 export default async function handler(req, res) {
   await connectDB();
