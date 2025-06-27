@@ -79,10 +79,8 @@ export const refreshToken = async (req, res) => {
       return res.status(401).json({ message: "No refresh token provided" });
     }
 
-    // Verify the refresh token
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
 
-    // Generate a new access token
     const accessToken = jwt.sign(
       { userId: decoded.userId },
       process.env.ACCESS_TOKEN_SECRET,
@@ -91,14 +89,15 @@ export const refreshToken = async (req, res) => {
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 15 * 60 * 1000, // 15 minutes
+      secure: true,             // ✅ Must be true for SameSite: 'none'
+      sameSite: "none",         // ✅ allow cookies cross-site (Vercel <-> Railway)
+      maxAge: 15 * 60 * 1000,
     });
 
-    res.status(200).json({ message: "Token refreshed successfully" });
+    res.status(200).json({ token: accessToken }); // ✅ Send token to frontend
   } catch (error) {
     console.log("Error in refresh token controller", error.message);
     res.status(500).json({ message: "Error refreshing token" });
   }
 };
+
