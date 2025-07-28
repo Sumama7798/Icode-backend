@@ -35,7 +35,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to iCode API");
 });
 
+connectDB();
 app.listen(PORT, () => {
   console.log("server is running on http://localhost:" + PORT);
-  connectDB();
+  console.log("MONGO_URI:", process.env.MONGO_URI);
 });
